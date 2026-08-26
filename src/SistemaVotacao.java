@@ -4,10 +4,6 @@ public class SistemaVotacao {
 
     static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        System.out.println("Sistema de votação iniciado.");
-        scanner.close();
-    }
     static final int MAX_CANDIDATOS = 5;
     static final int TOTAL_TURMAS = 3;
     static final int MAX_VOTANTES_POR_TURMA = 10;
@@ -21,4 +17,50 @@ public class SistemaVotacao {
     static int[] quantidadeVotosTurma = new int[TOTAL_TURMAS];
     static int quantidadeCandidatos = 0;
 
+    public static void main(String[] args) {
+
+        System.out.println("Sistema de votação iniciado.");
+
+        int opcao;
+
+        do {
+            System.out.println("\n===== SISTEMA DE VOTAÇÃO =====");
+            System.out.println("1 - Cadastrar candidatos");
+            System.out.println("2 - Iniciar votação");
+            System.out.println("3 - Exibir resultado");
+            System.out.println("4 - Exibir matriz de votos");
+            System.out.println("5 - Sair");
+
+            System.out.print("Opção: ");
+            opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    System.out.println("Cadastro selecionado.");
+                    break;
+
+                case 2:
+                    System.out.println("Votação selecionada.");
+                    break;
+
+                case 3:
+                    System.out.println("Resultado selecionado.");
+                    break;
+
+                case 4:
+                    System.out.println("Matriz selecionada.");
+                    break;
+
+                case 5:
+                    System.out.println("Sistema encerrado.");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida.");
+            }
+
+        } while (opcao != 5);
+
+        scanner.close();
+    }
 }
