@@ -35,9 +35,46 @@ public class SistemaVotacao {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Cadastro selecionado.");
-                    break;
+                    System.out.println();
+                    quantidadeCandidatos = lerInteiro("Quantidade de candidatos: ");
 
+                    while (quantidadeCandidatos <= 0 || quantidadeCandidatos > MAX_CANDIDATOS) {
+                        System.out.println("A quantidade deve estar entre 1 e " + MAX_CANDIDATOS + ".");
+                    }
+
+                    for (int i = 0; i < quantidadeCandidatos; i++) {
+                        int numero;
+
+                        while (true) {
+                            numero = lerInteiro(
+                                    "\nNúmero do candidato " + (i + 1) + ": "
+                            );
+
+                            if (numero <= 0) {
+                                System.out.println("O número deve ser maior que zero.");
+                                continue;
+                            }
+
+                            boolean numeroRepetido = false;
+
+                            for (int j = 0; j < i; j++) {
+                                if (numerosCandidatos[j] == numero) {
+                                    numeroRepetido = true;
+                                    break;
+                                }
+                            }
+
+                            if (numeroRepetido) {
+                                System.out.println("Esse número já está cadastrado.");
+                                continue;
+                            }
+
+                            numerosCandidatos[i] = numero;
+                            break;
+                        }
+
+                        break;
+                    }
                 case 2:
                     System.out.println("Votação selecionada.");
                     break;
@@ -62,6 +99,7 @@ public class SistemaVotacao {
 
         scanner.close();
     }
+
     static int lerInteiro(String mensagem) {
         while (true) {
             System.out.print(mensagem);
