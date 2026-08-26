@@ -43,9 +43,11 @@ public class SistemaVotacao {
                     }
 
                     for (int i = 0; i < quantidadeCandidatos; i++) {
+
                         int numero;
 
                         while (true) {
+
                             numero = lerInteiro(
                                     "\nNúmero do candidato " + (i + 1) + ": "
                             );
@@ -69,12 +71,26 @@ public class SistemaVotacao {
                                 continue;
                             }
 
-                            numerosCandidatos[i] = numero;
                             break;
                         }
 
-                        break;
+                        String nome;
+
+                        do {
+                            System.out.print("Nome do candidato: ");
+                            nome = scanner.nextLine().trim();
+
+                            if (nome.isEmpty()) {
+                                System.out.println("O nome não pode ficar vazio.");
+                            }
+
+                        } while (nome.isEmpty());
+
+                        numerosCandidatos[i] = numero;
+                        nomesCandidatos[i] = nome;
+                        votosCandidatos[i] = 0;
                     }
+
                 case 2:
                     System.out.println("Votação selecionada.");
                     break;
