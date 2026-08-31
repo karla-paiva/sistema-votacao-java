@@ -19,6 +19,7 @@ public class SistemaVotacao {
 
     public static void main(String[] args) {
 
+
         System.out.println("Sistema de votação iniciado.");
 
         int opcao;
@@ -89,7 +90,12 @@ public class SistemaVotacao {
                         numerosCandidatos[i] = numero;
                         nomesCandidatos[i] = nome;
                         votosCandidatos[i] = 0;
+
+                        System.out.println("Candidatos cadastrados com sucesso.");
                     }
+
+
+
 
                 case 2:
                     System.out.println("Votação selecionada.");
@@ -130,4 +136,17 @@ public class SistemaVotacao {
             scanner.nextLine();
         }
     }
+    static int buscarCandidato(int numero) {
+        int indiceEncontrado = -1;
+
+        for (int i = 0; i < quantidadeCandidatos; i++) {
+            if (numerosCandidatos[i] == numero) {
+                indiceEncontrado = i;
+                break;
+            }
+        }
+
+        return indiceEncontrado;
+    }
+
 }
