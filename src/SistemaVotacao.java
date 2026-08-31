@@ -106,7 +106,7 @@ public class SistemaVotacao {
                     break;
 
                 case 4:
-                    System.out.println("Matriz selecionada.");
+                    exibirMatrizVotos();
                     break;
 
                 case 5:
@@ -232,6 +232,23 @@ public class SistemaVotacao {
             System.out.println(
                     numerosCandidatos[i] + " - " + nomesCandidatos[i]
             );
+        }
+    }
+    static void exibirMatrizVotos() {
+        System.out.println("\n===== MATRIZ DE VOTOS =====");
+
+        for (int i = 0; i < TOTAL_TURMAS; i++) {
+            System.out.print("Turma " + (i + 1) + ": ");
+
+            for (int j = 0; j < MAX_VOTANTES_POR_TURMA; j++) {
+                if (j < quantidadeVotosTurma[i]) {
+                    System.out.print(votosPorTurma[i][j] + " ");
+                } else {
+                    System.out.print("- ");
+                }
+            }
+
+            System.out.println();
         }
     }
 
