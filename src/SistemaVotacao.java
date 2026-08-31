@@ -136,7 +136,6 @@ public class SistemaVotacao {
             scanner.nextLine();
         }
     }
-
     static int buscarCandidato(int numero) {
         int indiceEncontrado = -1;
 
@@ -149,7 +148,6 @@ public class SistemaVotacao {
 
         return indiceEncontrado;
     }
-
     static void iniciarVotacao() {
 
         if (quantidadeCandidatos == 0) {
@@ -236,7 +234,6 @@ public class SistemaVotacao {
             );
         }
     }
-
     static void exibirMatrizVotos() {
         System.out.println("\n===== MATRIZ DE VOTOS =====");
 
@@ -255,12 +252,11 @@ public class SistemaVotacao {
         }
 
     }
-
     static void exibirResultado() {
 
         int totalVotos = 0;
 
-        for (int i = 0; i < quantidadeCandidatos; i++) {
+        for (int i = 0; i <quantidadeCandidatos; i++) {
             totalVotos += votosCandidatos[i];
         }
 
@@ -279,7 +275,13 @@ public class SistemaVotacao {
                     votosCandidatos[i],
                     percentual
             );
+        }
+        int maiorQuantidadeVotos = votosCandidatos[0];
 
+        for (int i = 1; i < quantidadeCandidatos; i++) {
+            if (votosCandidatos[i] > maiorQuantidadeVotos) {
+                maiorQuantidadeVotos = votosCandidatos[i];
+            }
         }
     }
 }
